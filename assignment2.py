@@ -146,13 +146,6 @@ if __name__ == "__main__":
     n6.next = n3
     snel.head = n1
 
-    s = generator()
-    # printer(s)
+    g = generator()
+    printer(g, SnakeOrSnail(g))
 
-    #printer(snek)
-    #printer(snel, n3)
-
-    #SnakeOrSnail(snel)
-    #SnakeOrSnail(snek)
-    #printer(s)
-    SnakeOrSnail(s)

@@ -88,8 +88,30 @@ def SnakeOrSnail(llist):
         fast_p = fast_p.next
         if advance_slow : slow_p = slow_p.next
         advance_slow = not(advance_slow)
-    if fast_p is None : print ("Snake")
-    else : print("Snail")
+    if fast_p is None : return None
+    else :
+        first_p = fast_p
+        second_p = first_p
+        loop_length = 1
+
+        while first_p is not second_p.next:
+            second_p = second_p.next
+            loop_length += 1
+
+        # Setting first pointer to head of list and second to head+loop_length
+        first_p = head
+        second_p = head
+        for i in range(loop_length):
+            second_p = second_p.next
+
+
+        # Getting both pointers to meet at the head of the loop
+        while first_p is not second_p:
+            first_p = first_p.next
+            second_p = second_p.next
+
+        return first_p
+
 
 if __name__ == "__main__":
     snek = LinkedList()
@@ -124,11 +146,13 @@ if __name__ == "__main__":
     n6.next = n3
     snel.head = n1
 
-    # s = generator()
+    s = generator()
     # printer(s)
 
-    printer(snek)
-    printer(snel, n3)
+    #printer(snek)
+    #printer(snel, n3)
 
-    SnakeOrSnail(snel)
-    SnakeOrSnail(snek)
+    #SnakeOrSnail(snel)
+    #SnakeOrSnail(snek)
+    #printer(s)
+    SnakeOrSnail(s)
